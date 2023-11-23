@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import styled, { ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from 'styled-components/native';
 import theme from './src/theme/theme';
 import TopBar from './src/components/top-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -13,6 +12,8 @@ import {
   Roboto_400Regular,
   Roboto_500Medium,
 } from '@expo-google-fonts/roboto';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppNavigator } from './src/navigation/app-navigator';
 
 export default function App() {
   const [fontLobsterLoaded, fontLobsterError] = useLobster({
@@ -36,7 +37,9 @@ export default function App() {
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
           <TopBar />
-          <View></View>
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
           <StatusBar style='auto' />
         </ThemeProvider>
       </SafeAreaProvider>
