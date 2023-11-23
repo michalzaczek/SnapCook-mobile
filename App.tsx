@@ -14,10 +14,6 @@ import {
   Roboto_500Medium,
 } from '@expo-google-fonts/roboto';
 
-const Test = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.primary};
-`;
-
 export default function App() {
   const [fontLobsterLoaded, fontLobsterError] = useLobster({
     Lobster_400Regular,
@@ -40,10 +36,8 @@ export default function App() {
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
           <TopBar />
-          <View>
-            <Test>Open up App.tsx to start working on your app!</Test>
-            <StatusBar style='auto' />
-          </View>
+          <View></View>
+          <StatusBar style='auto' />
         </ThemeProvider>
       </SafeAreaProvider>
     </>
