@@ -7,5 +7,10 @@ declare module 'styled-components/native' {
       primaryDark: string;
       background: string;
     };
+    fonts: {
+      primary: string;
+      secondaryRegular: string;
+      secondaryMedium: string;
+    };
   }
 }
