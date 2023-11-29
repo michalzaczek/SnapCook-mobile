@@ -1,19 +1,20 @@
 import { SvgXml } from 'react-native-svg';
 import logo from '../../assets/logo';
 import styled from 'styled-components/native';
-import { Surface, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { View } from 'react-native';
-
-const LogoContainer = styled(Surface)`
-  background-color: ${({ theme }) => theme.colors.primaryDark};
-  border-radius: 0 0 10px 10px;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
+import { SafeAreaView } from 'react-native';
 
 const Container = styled(View)`
   height: 400px;
+`;
+
+const LogoContainer = styled(View)`
+  background-color: ${({ theme }) => theme.colors.primaryDark};
+  border-radius: 0 0 30px 30px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Sub = styled(Text)`
@@ -24,13 +25,13 @@ const Sub = styled(Text)`
 
 export function HomeScreen() {
   return (
-    <>
+    <SafeAreaView>
       <Container>
-        <LogoContainer elevation={2}>
+        <LogoContainer>
           <SvgXml xml={logo} width={210} height={210} />
           <Sub>Tap to take a photo!</Sub>
         </LogoContainer>
       </Container>
-    </>
+    </SafeAreaView>
   );
 }
