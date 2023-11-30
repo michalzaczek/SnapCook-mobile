@@ -10,6 +10,8 @@ import camera from '../../assets/camera';
 import theme from '../theme/theme';
 import styled from 'styled-components/native';
 import { PixelRatio, Platform, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function AppNavigator() {
   const Tab = createBottomTabNavigator();
@@ -51,19 +53,37 @@ export function AppNavigator() {
       }}
     >
       <Tab.Screen
-        name='Favorites'
-        component={FavoritesScreen}
+        name='Home'
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <SvgXml
-              xml={heart}
-              color={focused ? theme.colors.primaryDark : 'white'}
+            <Icon
+              name='home'
+              size={35}
+              color={
+                focused ? theme.colors.primaryDark : theme.colors.background
+              }
             />
           ),
         }}
       />
       <Tab.Screen
-        name='Home'
+        name='Ingredients'
+        component={IngredientsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <MaterialIcon
+              name='food-apple'
+              size={35}
+              color={
+                focused ? theme.colors.primaryDark : theme.colors.background
+              }
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Camera'
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -82,7 +102,23 @@ export function AppNavigator() {
           tabBarIcon: ({ focused }) => (
             <SvgXml
               xml={list}
-              color={focused ? theme.colors.primaryDark : 'white'}
+              color={
+                focused ? theme.colors.primaryDark : theme.colors.background
+              }
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Favorites'
+        component={FavoritesScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <SvgXml
+              xml={heart}
+              color={
+                focused ? theme.colors.primaryDark : theme.colors.background
+              }
             />
           ),
         }}
