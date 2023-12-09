@@ -12,11 +12,12 @@ import styled from 'styled-components/native';
 import { PixelRatio, Platform, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { CameraScreen } from '../screens/camera-screen';
+
+const isIos = Platform.OS === 'ios';
+const Tab = createBottomTabNavigator();
 
 export function AppNavigator() {
-  const Tab = createBottomTabNavigator();
-  const isIos = Platform.OS === 'ios';
-
   const backgroundColor = '#677D73';
 
   const CameraOuterContainer = styled(View)`
@@ -84,15 +85,16 @@ export function AppNavigator() {
       />
       <Tab.Screen
         name='Camera'
-        component={HomeScreen}
+        component={CameraScreen}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <CameraOuterContainer>
               <CameraInnerContainer>
                 <SvgXml xml={camera} />
               </CameraInnerContainer>
             </CameraOuterContainer>
           ),
+          unmountOnBlur: true,
         }}
       />
       <Tab.Screen

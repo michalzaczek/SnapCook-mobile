@@ -14,7 +14,7 @@ import {
 } from '@expo-google-fonts/roboto';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigator } from './src/navigation/app-navigator';
-
+import { UIStateProvider } from './src/contexts/ui-state/ui-state.context';
 export default function App() {
   const [fontLobsterLoaded, fontLobsterError] = useLobster({
     Lobster_400Regular,
@@ -36,11 +36,13 @@ export default function App() {
     <>
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
-          <TopBar />
-          <NavigationContainer>
-            <AppNavigator />
-          </NavigationContainer>
-          <StatusBar style='auto' />
+          <UIStateProvider>
+            <TopBar />
+            <NavigationContainer>
+              <AppNavigator />
+            </NavigationContainer>
+            <StatusBar style='auto' />
+          </UIStateProvider>
         </ThemeProvider>
       </SafeAreaProvider>
     </>
